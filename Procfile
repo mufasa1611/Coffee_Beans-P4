@@ -1,1 +1,1 @@
-web: gunicorn coffeebeans.wsgi
+web: gunicorn beans.wsgi
