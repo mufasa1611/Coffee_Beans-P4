@@ -19,9 +19,21 @@
     {% endblock %}
 
 
-    <title>Coffee_ Beans{% block title %}{% endblock%}</title>
+    <title>Coffeshop {% block title %}{% endblock%}</title>
 </head>
+
 <body>
-    
+    {% include 'includes/header.html' %}
+   
+    <main>
+  {% block content %}
+  {% endblock %}
+   
+    </main>
+
+    {% include 'includes/footer.html' %}
+
+
 </body>
+
 </html>
