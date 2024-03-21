@@ -1,0 +1,35 @@
+{% extends "account/base_entrance.html" %}
+{% load i18n %}
+{% load allauth account %}
+
+{% block title %}
+<h4> {% trans "Sign In" %} </h4>
+{% endblock title %}
+
+{% block content %}
+<div class="container text-center">
+    {% element h1 %}
+    {% trans "Sign In" %}
+    {% endelement %}
+
+    <p>
+        {% blocktrans %}If you have not created an account yet, then please
+        <a href="{{ signup_url }}">sign up</a> first.{% endblocktrans %}
+    </p>
+
+    {% url 'account_login' as login_url %}
+    {% element form form=form method="post" class="form p-2" action=login_url tags="entrance,login" %}
+    {% slot body %}
+    {% csrf_token %}
+    {{ form|crispy }}
+    {% endslot %}
+
+    {% slot actions %}
+
+    <button type="submit" class="btn btn-primary w-25">
+        {% trans "Sign In" %}</button>
+    
+    {% endslot %}
+    {% endelement %}
+</div>
+{% endblock content %}
