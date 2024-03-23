@@ -48,7 +48,8 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     
     #Apps
-    'blog',
+    'blog', # Post model is in this app
+    'comments', # Comment model is in this app
     
     #Extras
     'crispy_forms',
