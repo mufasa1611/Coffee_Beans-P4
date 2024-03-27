@@ -1,4 +1,9 @@
-from django.views.generic import TemplateView
+from django.views import generic
+from .models import Post
+
+
 # Create your views here.
-class Blog(TemplateView):
+class PostList(generic.ListView):
+    queryset = Post.objects.filter(status=1)
     template_name = "blog/home.html"
+
