@@ -8,6 +8,7 @@ class PostAdmin(admin.ModelAdmin):
     ordering = ['-created_on'] 
 
 
+
 # Register  models .
 admin.site.register(Post, PostAdmin)
 admin.site.register(Comment)
