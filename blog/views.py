@@ -8,6 +8,8 @@ from django.contrib import messages
 class PostList(generic.ListView):
     queryset = Post.objects.filter(status=1)
     template_name = "blog/home.html"
+    paginate_by = 6
+
 
 def post_detail(request, slug):
     queryset = Post.objects.filter(status=1)
