@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 import os
+import sys
 from pathlib import Path
 import dj_database_url
 
@@ -49,7 +50,7 @@ INSTALLED_APPS = [
     
     #Apps
     'blog', # Post model is in this app
-    'comments', # Comment model is in this app
+    
     
     #Extras
     'crispy_forms',
@@ -121,7 +122,9 @@ DATABASES = {
     'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
 }
 
-
+if 'test' in sys.argv:
+    DATABASES['default']['ENGINE'] = 'django.db.backends.sqlite3'
+    
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
 
@@ -171,6 +174,13 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # Define the absolute path to the directory where Django will collect static files
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+
+# FileSystemFinder
+STATICFILES_FINDERS = [
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field

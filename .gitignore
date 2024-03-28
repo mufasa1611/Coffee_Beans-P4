@@ -11,3 +11,7 @@ cloudinary_python.txt
 venv.bak
 .idea
 .vscode
+db_backup.json
+backup.json
+fixtures
+test_views.py
