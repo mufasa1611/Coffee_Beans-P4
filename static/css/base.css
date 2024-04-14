@@ -33,6 +33,10 @@ main {
     font-weight: 300;
 }
 
+.approval {
+    color: rgb(255, 149, 0);
+}
+
 .form {
     width: 100%;
     margin: 3% auto;
