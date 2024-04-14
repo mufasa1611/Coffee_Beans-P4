@@ -10,6 +10,8 @@ class PostAdmin(admin.ModelAdmin):
 
 
 # Register  models .
+class CommentAdmin(admin.ModelAdmin):
+    exclude = ('status',)
 admin.site.register(Post, PostAdmin)
-admin.site.register(Comment)
+admin.site.register(Comment, CommentAdmin)
     
