@@ -113,6 +113,8 @@ AUTHENTICATION_BACKENDS = [
     'allauth.account.auth_backends.AuthenticationBackend',
 ]
 
+# Disable email confirmation
+ACCOUNT_EMAIL_VERIFICATION = None
 
 WSGI_APPLICATION = 'beans.wsgi.application'
 
