@@ -31,6 +31,12 @@ def post_detail(request, slug):
             )
             comment_form = CommentForm() 
             return redirect('post_detail', slug=post.slug)
+        else:
+            messages.add_message(
+                request, messages.ERROR,
+                'There was an error with your submission. Please try again.'
+            )
+   
 
     return render(request, "blog/post_detail.html", {
         "post": post, 
