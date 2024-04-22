@@ -19,22 +19,25 @@ class Post(models.Model):
           ordering = ["-created_on"]
 
     def __str__(self):
-          return f"{self.title} | written by {self.author}"
+          return f"{self.title}" # | written by {self.author}"
 
 
 # Comment  model .
-COMMENT_STATUS = (
-    ('pending', 'Pending'),
-    ('approved', 'Approved'),
-)
+
 class Comment(models.Model):
     post = models.ForeignKey('Post', on_delete=models.CASCADE, related_name="comments")
     author = models.ForeignKey(User, on_delete=models.CASCADE, related_name="commenter")
     content = models.TextField()
     created_on = models.DateTimeField(auto_now_add=True)
-    approved = models.BooleanField(default=False)
-    status = models.CharField(max_length=10, choices=COMMENT_STATUS, default='pending')
-
+    updated_on = models.DateTimeField(auto_now =True) 
+    
+    APPROVAL_STATUS = (
+        (0, 'Pending'),
+        (1, 'Approved'),
+    )
+    approved = models.IntegerField(choices=APPROVAL_STATUS, default=0)
+    
+    
     class Meta:
         ordering = ["created_on"]
 

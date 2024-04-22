@@ -2,11 +2,11 @@
 {% load crispy_forms_tags %}
 {% load static %}
 {% block content %}
-{% if messages %}
 
-<!-- Alert message  -->
+<!-- # Alert message  -->
+{% if messages %}
 <div class="alert alert-info text-center" role="alert">
-    {% for message in messages %}
+    <!-- {% for message in messages %} -->
         {{ message }}
     {% endfor %}
 </div>
@@ -76,29 +76,43 @@
                                         This comment is awaiting approval
                                     </p>
                                     {% endif %}
+                                
+                                    <!-- edit button -->
+                                    {% if user.is_authenticated and comment.author == user %}
+                                    <button class="btn btn-edit" 
+                                    comment_id="{{ comment.id }}">Edit</button>
+                                    {% endif %}
                                 </div>
 
-                                <!-- for loop ends here -->
+                                <!-- for loop ends -->
                                 {% endfor %}
                             </div>
                         </div>
-
-                        <!-- Creating New Comments -->
                         <div class="col-md-4 card mb-4 mt-3">
                             <div class="card-body">
                                 {% if user.is_authenticated %}
                                 <h3>Leave a comment:</h3>
                                 <p>Posting as: {{ user.username }}</p>
                                 <form id="commentForm" method="post" style="margin-top: 1.3em;">
-                                    {{ comment_form | crispy }}
                                     {% csrf_token %}
-
-                                    <button id="submitButton" type="submit"
-                                        class="btn btn-signup btn-lg">Submit</button>
+                                <textarea id="id_body" name="content" rows="4" cols="50"></textarea>
+                                    <br>
+                                    <button id="submitButton" type="submit" class="btn btn-signup btn-lg">Submit</button>
                                 </form>
+                                
                                 {% else %}
                                 <p>Log in to leave a comment</p>
                                 {% endif %}
                             </div>
                         </div>
+                        
+                        
+                        {% block extras %}
+                     
+                        <script src="{% static 'js/comments.js' %}"></script>
+
+                           {% endblock %}
+                           
                         {% endblock content %}
+
+  
