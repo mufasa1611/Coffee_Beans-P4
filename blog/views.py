@@ -1,4 +1,4 @@
-# Import the print function
+
 from django.shortcuts import render, get_object_or_404, redirect, reverse
 from django.http import HttpResponseRedirect
 from django.views import generic
@@ -89,4 +89,19 @@ def comment_edit(request, slug, comment_id):
     print("Comment ID:", comment_id)
 
     # Redirect back to post detail page
+    return HttpResponseRedirect(reverse('post_detail', args=[slug]))
+
+ 
+    # delete comment
+def comment_delete(request, slug, comment_id):
+    post = get_object_or_404(Post, slug=slug)
+    comment = get_object_or_404(Comment, pk=comment_id)
+    
+    # Check the user is the author to the comment
+    if comment.author == request.user:
+        comment.delete()
+        messages.add_message(request, messages.SUCCESS, 'Comment deleted!')
+    else:
+        messages.add_message(request, messages.ERROR, 'You can only delete your own comments!')
+
     return HttpResponseRedirect(reverse('post_detail', args=[slug]))
