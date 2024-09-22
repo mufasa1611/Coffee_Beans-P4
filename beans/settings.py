@@ -35,8 +35,12 @@ ALLOWED_HOSTS = ['.herokuapp.com',
                  '127.0.0.1',
                  'localhost']
 
+CSRF_TRUSTED_ORIGINS = [
+    'https://8000-mufasa1611-coffeebeansp-e87o2sjx4yq.ws.codeinstitute-ide.net'      
+]
 
 # Application definition
+
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -123,7 +127,7 @@ WSGI_APPLICATION = 'beans.wsgi.application'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
 DATABASES = {
-    'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
+     'default': dj_database_url.parse(os.environ.get("DATABASE_URL", "sqlite:///db.sqlite3"))
 }
 
 if 'test' in sys.argv:

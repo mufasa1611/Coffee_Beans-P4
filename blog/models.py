@@ -1,5 +1,10 @@
 from django.db import models
 from django.contrib.auth.models import User
+import re
+
+def clean_nbsp(text):
+    return re.sub(r'&nbsp;', ' ', text)
+ 
 
 STATUS = ((0, "Draft"), (1, "Published"))
 
@@ -22,6 +27,7 @@ class Post(models.Model):
           return f"{self.title}" # | written by {self.author}"
 
 
+
 # Comment  model .
 
 class Comment(models.Model):
@@ -36,10 +42,14 @@ class Comment(models.Model):
         (1, 'Approved'),
     )
     approved = models.IntegerField(choices=APPROVAL_STATUS, default=0)
-    
-    
+   
+
     class Meta:
         ordering = ["created_on"]
 
     def __str__(self):
         return f"Comment {self.author} on {self.post.title}"
+
+    def save(self, *args, **kwargs):
+        self.content = clean_nbsp(self.content)
+        super().save(*args, **kwargs) 
