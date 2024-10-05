@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function() {
-    const editButtons = document.querySelectorAll(".btn-edit");
+    const editButtons = document.querySelectorAll(".btn-custom-edit");
     const commentText = document.getElementById("id_body");
     const commentForm = document.getElementById("commentForm");
     const submitButton = document.getElementById("submitButton");

@@ -79,9 +79,10 @@
                                 
                                     <!-- Edit _ Delete button -->
                                     {% if user.is_authenticated and comment.author == user %}
-                                    <button class="btn btn-edit"
+                                    
+                                     <button class="btn btn-primary btn-custom-edit"
                                       comment_id="{{ comment.id }}">Edit</button>
-                                    <button class="btn btn-delete" 
+                                      <button class="btn btn-danger btn-delete" 
                                       comment_id="{{ comment.id }}">Delete</button>
                                     {% endif %}
                                 </div>
@@ -99,7 +100,7 @@
                                     {% csrf_token %}
                                 <textarea id="id_body" name="content" rows="4" cols="30"></textarea>
                                     <br>
-                                    <button id="submitButton" type="submit" class="btn btn-signup btn-lg">Submit</button>
+                                    <button id="submitButton" type="submit" class="btn btn-primary">Submit</button>
                                     
                                 </form>
                                 
