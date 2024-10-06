@@ -1,5 +1,6 @@
+
 /* Google fonts import */
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Roboto:wght@300;400;500;700&display=swap');
 
 html {
     height: 100%;
@@ -9,53 +10,218 @@ body {
     height: 100%;
     display: flex;
     flex-direction: column;
-   }
+    background-color: #f7f3eb;
+}
 
 main {
     flex: 1 0 auto;
-    background-color: rgb(205, 212, 255);
- }
-
-/* Header */
-
-.navbar-nav {
-    background-color: rgb(249, 233, 236);
-    box-shadow:chocolate -3px 5px 15px;
+    background-color: #e7dbc8;
 }
 
+/* Header */
+.navbar-nav {
+    background-color: #4e342e;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
 
 .nav-link {
-    color: rgb(77, 41, 240);
+    color: #d7ccc8;
+    font-weight: 600;
+}
+
+.nav-link:hover {
+    color: #ffb74d; 
+    transition: color 0.2s ease;
+}
+
+.navbar-nav .nav-link.active, .navbar-nav .nav-link.show {
+    color: #ffb74d;
 }
 
 .active {
-    border-bottom: 2px solid  red;
-    font-weight: 300;
+    border-bottom: 2px solid #6d4c41;
+    font-weight: 500;
 }
 
-.approval {
-    color: rgb(255, 149, 0);
-}
-
+/* Form */
 .form {
     width: 100%;
     margin: 3% auto;
-    box-shadow: 1px 2px 7px 0 #05ff2a61;
-    border-radius: 2px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 6px;
+    background-color: #fff; 
 }
 
 /* Footer */
 footer {
     flex-shrink: 0;
-    background-color: rgb(237, 237, 237);
+    background-color: #4e342e;
+    color: #d7ccc8;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
-   
+    padding: 5px 0;
 }
 
 .icon {
     height: 2rem;
     margin: 1.5rem;
+}
+
+.card {
+    border: none;
+    background-color: #fafafa;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+.card-img-top {
+    height: 200px;
+    object-fit: cover;
+}
+
+.image-container {
+    position: relative;
+}
+
+.image-flash {
+    position: absolute;
+    bottom: 0%;
+    min-width: 2%;
+    left: 0px;
+    background-color: #ffe0b2;
+}
+
+.scale {
+    width: 100%;
+    height: auto;
+}
+
+.author {
+    color: #6d4c41;
+    margin: 4px;
+    text-transform: uppercase;
+}
+
+.masthead {
+    margin-top: 10px;
+    overflow: hidden;
+    position: relative;
+    display: inline-block;
+    height: 33vh;
+    width: 100%;
+}
+
+.masthead-text {
+    background-color: #ffcc80;
+    color: #3e2723;
+    position: relative;
+}
+
+.masthead-image {
+    position: relative;
+    overflow: hidden;
+}
+
+.masthead-image:after {
+    position: absolute;
+    top: 0;
+    right: 90%;
+    height: 100%;
+    width: 150%;
+    background: #d7ccc8;
+    transform: skew(15deg);
+    z-index: 100;
+}
+
+/* Post Links */
+.post-link {
+    text-decoration: none;
+    color: #6d4c41;
+}
+
+.post-link:hover,
+.page-link {
+    color: #ff8a65;
+    transition: color 0.3s ease;
+}
+
+.post-title {
+    margin-top: 1%;
+    margin-left: 5%;
+    font-weight: 700;
+}
+
+.post-subtitle {
+    margin-left: 5%;
+    color: #8d6e63;
+}
+
+/* Comments */
+.comments {
+    border-left: 3px solid #e0e0e0;
+    margin-bottom: 1rem;
+    padding-left: 1rem;
+    background-color: #fff;
+    padding: 0.5rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+/* Faded content */
+.faded {
+    opacity: 1;
+}
+
+
+
+/* Buttons */
+/*"Edit" Button*/
+.btn-primary {
+    background-color: #5d4037;
+    color: #fff;
+    border: none;
+    border-radius: 50px;
+    padding: 10px 20px;
+    transition: background-color 0.3s ease;
+    --bs-btn-active-bg: #9c6959;
+}
+.btn-primary:hover {
+    background-color: #4e342e;
+}
+
+/*"Delete" Button*/
+/*.btn-danger {
+    background-color: #d84315;
+    color: #fff;
+    border: none;
+    border-radius: 50px;
+    padding: 10px 20px;
+    transition: background-color 0.3s ease;
+    --bs-btn-active-bg: #f56b41;
+}
+.btn-danger:hover {
+    background-color: #bf360c;
+}*/
+
+/*"Search" Button*/
+.btn-outline-success {
+    background-color: transparent;
+    color: #6d4c41;
+    border: 2px solid #6d4c41;
+    border-radius: 50px;
+    padding: 10px 20px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    --bs-btn-active-bg: #9c6959;
+    --bs-btn-hover-border-color: #6d4c41;
+}
+.btn-outline-success:hover {
+    background-color: #6d4c41;
+    color: #fff;
+}
+
+/* Smaller height on mobile */
+@media (max-width: 768px) {
+    .fixed-image {
+        max-height: 250px;
+    }
 }

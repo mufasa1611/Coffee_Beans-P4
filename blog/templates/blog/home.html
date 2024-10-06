@@ -17,9 +17,12 @@
     <h2>{{ event.event_name }}</h2>
 </a>
 {% endfor %}
-<div class="d-flex justify-content-center align-items-center" style="height:0px,">
-    <img src="{% static 'img/coffee_cups.png' %}" class="scale img-fluid" alt="placeholder">
-</div>
+<div class="container-fluid">
+    <div class="row">
+        <img src="{% static 'img/coffee-beans-field.jpg' %}"  alt="placeholder">
+        
+           
+    </div>
 
 
 <!-- home.html content starts here -->
@@ -35,7 +38,7 @@
                         <div class="card-body">
                             <div class="image-container">
                                 {% if "placeholder" in post.featured_image.url %}
-                                <img class="card-img-top" src="{% static 'img/default.jpg' %}"
+                                <img class="card-img-top" src="{% static 'img/coffee-beans-field.jpg' %}"
                                   alt="placeholder image">
                                 {% else %}
                                 <img class="card-img-top" src=" {{ post.featured_image.url }}"
