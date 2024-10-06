@@ -9,27 +9,32 @@ body {
     height: 100%;
     display: flex;
     flex-direction: column;
-   }
+}
 
 main {
     flex: 1 0 auto;
     background-color: rgb(205, 212, 255);
- }
+}
 
 /* Header */
 
 .navbar-nav {
     background-color: rgb(249, 233, 236);
-    box-shadow:chocolate -3px 5px 15px;
+    box-shadow: chocolate -3px 5px 15px;
 }
+
 
 .nav-link {
     color: rgb(77, 41, 240);
 }
 
 .active {
-    border-bottom: 2px solid  red;
+    border-bottom: 2px solid red;
     font-weight: 300;
+}
+
+.approval {
+    color: rgb(255, 149, 0);
 }
 
 .form {
@@ -47,10 +52,120 @@ footer {
     flex-direction: row;
     align-items: center;
     justify-content: center;
-   
+
 }
 
 .icon {
     height: 2rem;
     margin: 1.5rem;
+}
+
+.card {
+    border: peru;
+    background-color: transparent;
+}
+
+.card-img-top {
+    height: 200px;
+    object-fit: cover;
+    /* Ensure the image covers the entire container */
+    object-position: center;
+    /*Center the image within the container*/
+}
+
+.image-container {
+    position: relative;
+}
+
+.image-flash {
+    position: absolute;
+    bottom: 0%;
+    min-width: 2%;
+    left: 0px;
+    background-color: #f2f2f2;
+}
+
+.scale {
+    width: 100%;
+    height: auto;
+}
+
+.author {
+    color: #3e4650;
+    margin: 4px;
+    text-transform: uppercase;
+}
+
+.masthead {
+    margin-top: 10px;
+    overflow: hidden;
+    position: relative;
+    display: inline-block;
+    height: 33vh;
+    width: 100%;
+}
+
+.masthead-text {
+    background-color: #ffee8d;
+    color: #190124;
+    position: relative;
+}
+
+.masthead-image {
+    position: relative;
+    overflow: hidden;
+}
+
+.masthead-image:after {
+
+    position: absolute;
+    top: 0;
+    right: 90%;
+    height: 100%;
+    width: 150%;
+    background: #89ffcc;
+    -webkit-transform: skew(15deg);
+    -moz-transform: skew(15deg);
+    transform: skew(15deg);
+    z-index: 100;
+}
+
+.post-link {
+    text-decoration: none;
+    color: #d579ff;
+}
+
+.post-link:hover,
+.page-link {
+    color: #d579ff;
+}
+
+.post-title {
+    margin-top: 1%;
+    margin-left: 5%;
+}
+
+.post-subtitle {
+    margin-left: 5%;
+    color: rgb(153, 152, 152);
+}
+
+.comments {
+    border-left: 3px solid #f0f0f0;
+    margin-bottom: 1rem;
+    padding-left: 1rem;
+    background-color: #f9f9f9;
+    padding: 0.5rem;
+}
+
+
+.faded {
+    opacity: .8;
+}
+
+/* Smaller height on mobile */
+@media (max-width: 768px) {
+    .fixed-image {
+        max-height: 250px;
+    }
 }
