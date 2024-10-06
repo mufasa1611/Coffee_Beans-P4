@@ -173,52 +173,6 @@ footer {
 }
 
 
-
-/* Buttons */
-/*"Edit" Button*/
-.btn-primary {
-    background-color: #5d4037;
-    color: #fff;
-    border: none;
-    border-radius: 50px;
-    padding: 10px 20px;
-    transition: background-color 0.3s ease;
-    --bs-btn-active-bg: #9c6959;
-}
-.btn-primary:hover {
-    background-color: #4e342e;
-}
-
-/*"Delete" Button*/
-/*.btn-danger {
-    background-color: #d84315;
-    color: #fff;
-    border: none;
-    border-radius: 50px;
-    padding: 10px 20px;
-    transition: background-color 0.3s ease;
-    --bs-btn-active-bg: #f56b41;
-}
-.btn-danger:hover {
-    background-color: #bf360c;
-}*/
-
-/*"Search" Button*/
-.btn-outline-success {
-    background-color: transparent;
-    color: #6d4c41;
-    border: 2px solid #6d4c41;
-    border-radius: 50px;
-    padding: 10px 20px;
-    transition: background-color 0.3s ease, color 0.3s ease;
-    --bs-btn-active-bg: #9c6959;
-    --bs-btn-hover-border-color: #6d4c41;
-}
-.btn-outline-success:hover {
-    background-color: #6d4c41;
-    color: #fff;
-}
-
 /* Smaller height on mobile */
 @media (max-width: 768px) {
     .fixed-image {
