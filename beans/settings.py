@@ -57,8 +57,8 @@ INSTALLED_APPS = [
     'cloudinary',
     
     #Apps
-    'blog', # Post model is in this app
-    
+    # Post model is in this app
+    'blog', 
     
     #Extras
     'crispy_forms',
@@ -95,6 +95,7 @@ TEMPLATES = [
             ],
         'APP_DIRS': True,
         'OPTIONS': {
+            'debug': True,
             'context_processors': [
                 'django.template.context_processors.debug',
                 'django.template.context_processors.request',

@@ -90,7 +90,8 @@
                             <p>Posting as: {{ user.username }}</p>
                             <form id="commentForm" method="post" style="margin-top: 1.3em;">
                                 {% csrf_token %}
-                                <textarea id="id_body" name="content" rows="4" cols="30"></textarea>
+                                <textarea class="textarea form-control" id="id_body" name="content" rows="4" cols="30"
+                                ></textarea>
                                 <br>
                                 <button id="submitButton" type="submit" class="btn btn-primary">Submit</button>
                             </form>
