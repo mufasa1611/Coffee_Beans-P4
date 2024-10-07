@@ -2,8 +2,8 @@
 from django.shortcuts import render, get_object_or_404, redirect, reverse
 from django.http import HttpResponseRedirect
 from django.views import generic
-from .models import Post, Comment
-from .forms import CommentForm
+from .models import Post, Comment, ContactMessage  
+from .forms import CommentForm, ContactForm
 from django.contrib import messages
 
 # Create your views here.
@@ -109,3 +109,17 @@ def comment_delete(request, slug, comment_id):
 def about(request):
     return render(request, 'blog/about.html')
 
+# contact us section 
+
+def contact(request):
+    if request.method == "POST":
+        form = ContactForm(request.POST)
+        if form.is_valid():
+           ContactMessage.objects.create(
+                name=form.cleaned_data['name'],
+                email=form.cleaned_data['email'],
+                message=form.cleaned_data['message']
+            )
+    else:
+        form = ContactForm()
+    return render(request, 'blog/contact.html', {'form': form})	
