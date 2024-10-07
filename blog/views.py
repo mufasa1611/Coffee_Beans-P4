@@ -115,11 +115,16 @@ def contact(request):
     if request.method == "POST":
         form = ContactForm(request.POST)
         if form.is_valid():
-           ContactMessage.objects.create(
+            ContactMessage.objects.create(
                 name=form.cleaned_data['name'],
                 email=form.cleaned_data['email'],
                 message=form.cleaned_data['message']
             )
+            # Add a success message
+            messages.success(request, 'Thank you for your message!')
+            # Redirect to the same page to reset the form
+            return redirect('contact')  # Ensure 'contact' matches your URL pattern name
     else:
         form = ContactForm()
-    return render(request, 'blog/contact.html', {'form': form})	
+        
+    return render(request, 'blog/contact.html', {'form': form})

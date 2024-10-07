@@ -3,8 +3,46 @@
 {% block title %}About Us{% endblock %}
 
 {% block content %}
-<div class="container">
-    <h1>About Us</h1>
-    <p>Welcome to Coffee Beans. We are passionate about coffee and dedicated to bringing you the best flavors.</p>
+<div class="container my-5">
+    <h1 class="mb-4 text-center">About Us</h1>
+    <p class="lead text-center">
+        Welcome to our Coffee Beans Blog, where we celebrate the rich and diverse world of coffee! 
+        Our passion for coffee runs deep, and we aim to share our love for this extraordinary beverage with you.
+    </p>
+
+    <h2 class="mt-5">Our Mission</h2>
+    <p>
+        Our mission is to educate and inspire coffee lovers everywhere by sharing insights about different 
+        coffee bean varieties, brewing techniques, and the cultural significance of coffee around the globe. 
+        Whether you're a seasoned barista or just starting your coffee journey, we have something for everyone.
+    </p>
+
+    <h2 class="mt-5">A Brief History of Coffee</h2>
+    <p>
+        Coffee has a long and fascinating history that dates back to the 9th century. Here are some key 
+        historical facts about this beloved beverage:
+    </p>
+    <ul>
+        <li><strong>Origin in Ethiopia:</strong> According to legend, coffee was discovered by a goat herder named Kaldi in the Ethiopian region of Kaffa. He noticed that his goats became energetic after eating the berries from a certain tree.</li>
+        <li><strong>Spread to the Arab World:</strong> By the 15th century, coffee began to spread to the Arab world, where it became an integral part of social life. The first coffeehouses, known as qahveh khaneh, opened in Persia (modern-day Iran).</li>
+        <li><strong>Introduction to Europe:</strong> Coffee made its way to Europe in the 17th century. Initially met with suspicion, it soon gained popularity, leading to the opening of coffeehouses across major cities like Venice, Paris, and London.</li>
+        <li><strong>Coffee and the Enlightenment:</strong> Coffeehouses became centers of social interaction and intellectual discussion during the Age of Enlightenment. They were often referred to as "penny universities" because for the price of a coffee, one could engage in stimulating conversations.</li>
+        <li><strong>The Coffee Plantations:</strong> By the 18th century, coffee was cultivated in various tropical regions around the world, including the Caribbean, Central and South America, and Southeast Asia. Coffee became a valuable commodity and an important part of global trade.</li>
+    </ul>
+
+    <h2 class="mt-5">Join Us on Our Coffee Journey</h2>
+    <p>
+        We invite you to explore our blog, learn more about the fascinating world of coffee, and join us 
+        in our quest for the perfect cup. Together, let’s savor the rich flavors and aromas that coffee 
+        has to offer!
+    </p>
+
+    <h2 class="mt-5">Connect with Us</h2>
+    <p>
+        Have questions, suggestions, or just want to share your love for coffee? Feel free to 
+        <a href="{% url 'contact' %}">contact us</a>! We’d love to hear from you.
+    </p>
 </div>
 {% endblock %}
+
+

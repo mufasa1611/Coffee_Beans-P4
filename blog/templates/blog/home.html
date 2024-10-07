@@ -18,11 +18,10 @@
 </a>
 {% endfor %}
 <div class="container-fluid">
-    <div class="row">
-        <img src="{% static 'img/coffee-beans-field.jpg' %}"  alt="placeholder">
-        
-           
+    <div class="image-wrapper">
+        <img class="mainpage-image" src="{% static 'img/pexels.main.jpg' %}" alt="placeholder">   
     </div>
+</div>
 
 
 <!-- home.html content starts here -->
@@ -45,7 +44,7 @@
                                   alt="{{ post.title }}">
                                 {% endif %}
                                 <div class="image-flash">
-                                    <p class="author">Author: {{ post.author }}</p>
+                                    <p class="author">Author : {{ post.author }}</p>
                                 </div>
                             </div>
                             <hr/>
