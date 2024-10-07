@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django_summernote.admin import SummernoteModelAdmin
-from .models import Post, Comment
+from .models import Post, Comment, ContactMessage 
 
 # Register model posts.
 @admin.register(Post)
@@ -19,3 +19,9 @@ class CommentAdmin(SummernoteModelAdmin):
         return obj.get_approved_display()
 
     get_status_display.short_description = 'Status'
+    
+    
+@admin.register(ContactMessage)
+class ContactMessageAdmin(admin.ModelAdmin):
+    list_display = ('name', 'email', 'created_at')
+    search_fields = ('name', 'email')      
