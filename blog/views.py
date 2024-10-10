@@ -1,4 +1,3 @@
-
 from django.shortcuts import render, get_object_or_404, redirect, reverse
 from django.http import HttpResponseRedirect
 from django.views import generic
@@ -120,10 +119,12 @@ def contact(request):
                 email=form.cleaned_data['email'],
                 message=form.cleaned_data['message']
             )
+            # (the upcoming code snaped with modifications from 
+            # https://stackoverflow.com/questions/42893623/django-success-message-in-view-using-django-contrib-messages)
             # Add a success message
             messages.success(request, 'Thank you for your message!')
             # Redirect to the same page to reset the form
-            return redirect('contact')  # Ensure 'contact' matches your URL pattern name
+            return redirect('contact')  # Confirm  'contact' matches URL pattern name
     else:
         form = ContactForm()
         

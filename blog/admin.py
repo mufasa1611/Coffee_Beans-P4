@@ -12,9 +12,9 @@ class PostAdmin(SummernoteModelAdmin):
 
 # Register comments model.
 @admin.register(Comment)
-class CommentAdmin(SummernoteModelAdmin):
+class CommentAdmin(admin.ModelAdmin):
     list_display = ('post', 'author', 'content', 'get_status_display', 'created_on', 'updated_on')
-   
+    readonly_fields = ['content']  # Make content read-only
     def get_status_display(self, obj):
         return obj.get_approved_display()
 

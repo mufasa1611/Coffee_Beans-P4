@@ -1,13 +1,14 @@
 {% extends "base.html" %}
-
+{% load static %}
 {% block title %}About Us{% endblock %}
-
 {% block content %}
-<div class="container my-5">
+<div class="container my-1">
     <h1 class="mb-4 text-center">About Us</h1>
+        
+    <img src="{% static 'img/hero.jpg' %}" alt="Coffee beans" class="hero img-fluid rounded-circle ">
     <p class="lead text-center">
         Welcome to our Coffee Beans Blog, where we celebrate the rich and diverse world of coffee! 
-        Our passion for coffee runs deep, and we aim to share our love for this extraordinary beverage with you.
+        <br>Our passion for coffee runs deep, and we aim to share our love for this extraordinary beverage with you.
     </p>
 
     <h2 class="mt-5">Our Mission</h2>
@@ -39,10 +40,12 @@
 
     <h2 class="mt-5">Connect with Us</h2>
     <p>
-        Have questions, suggestions, or just want to share your love for coffee? Feel free to 
-        <a href="{% url 'contact' %}">contact us</a>! We’d love to hear from you.
+        <strong> Have questions, suggestions, or just want to share your love for coffee? Feel free to 
+        <a href="{% url 'contact' %}" class="btn btn-warning">contact us !</a>
+          We’d love to hear from you.</strong>
     </p>
 </div>
 {% endblock %}
+
 
 

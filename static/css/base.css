@@ -70,6 +70,21 @@ footer {
     margin: 1.5rem;
 }
 
+.hero {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 5rem;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 100%;
+    width: 50%; 
+    height: auto; 
+    display: block; 
+    margin-left: auto;
+    margin-right: auto;
+ }
+ 
 .card {
     border: none;
     background-color: #fafafa;
@@ -82,6 +97,7 @@ footer {
 }
 
 .image-container {
+
     position: relative;
 }
 
@@ -174,13 +190,20 @@ footer {
     opacity: 1;
 }
 
-
-/* Smaller height on mobile */
-@media (max-width: 768px) {
-    .fixed-image {
-        max-height: 250px;
-    }
+.btn-warning {
+    background-color: #4e342e;
+    color: #d7ccc8;
+    font-weight: 600;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
 }
+
+.btn-warning:hover {
+    background-color: #ffb74d; 
+    transition: background-color 0.2s ease;
+}
+
 
 .image-wrapper {
     position: relative;
@@ -195,7 +218,9 @@ footer {
     display: block;
     margin: 0 auto;
     position: relative;
+    overflow: hidden;
     clip-path: inset(0 0 15% 0);
+    border-radius: 50%;
 }
 
 .image-wrapper::after {
@@ -204,6 +229,14 @@ footer {
     bottom: 0;
     left: 0;
     right: 0;
-    height: 40%;            /* Adjust the fade-out area */
+    height: 20%;            /* Adjust the fade-out area */
     background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%);
+}
+
+
+/* Smaller height on mobile */
+@media (max-width: 768px) {
+    .fixed-image {
+        max-height: 250px;
+    }
 }
