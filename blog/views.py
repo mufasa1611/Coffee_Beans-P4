@@ -1,9 +1,10 @@
 from django.shortcuts import render, get_object_or_404, redirect, reverse
 from django.http import HttpResponseRedirect
 from django.views import generic
-from .models import Post, Comment, ContactMessage  
+from .models import Post, Comment, ContactMessage, Favorite  
 from .forms import CommentForm, ContactForm
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 class PostList(generic.ListView):
@@ -129,3 +130,11 @@ def contact(request):
         form = ContactForm()
         
     return render(request, 'blog/contact.html', {'form': form})
+
+@login_required
+def favorite(request, post_id):
+    post = get_object_or_404(Post, id=post_id)
+    favorite, created = Favorite.objects.get_or_create(user=request.user, post=post)
+    if not created:
+        favorite.delete() 
+    return redirect('post_detail', post_id=post.id)
