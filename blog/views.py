@@ -16,8 +16,8 @@ class PostList(generic.ListView):
 def post_detail(request, slug):
     queryset = Post.objects.filter(status=1)
     post = get_object_or_404(queryset, slug=slug)
+    is_favorited = False
     if request.user.is_authenticated:
-        # Check if the post is in the user's favorites
         is_favorited = Favorite.objects.filter(user=request.user, post=post).exists()
     comments = post.comments.all().order_by("-created_on")
     comment_count = post.comments.filter(approved=True).count()
@@ -55,9 +55,6 @@ def comment_edit(request, slug, comment_id):
     if request.method == "POST":
         post = get_object_or_404(Post, slug=slug)
         comment = get_object_or_404(Comment, pk=comment_id)
-
-        # Print received form data for debugging
-        print("Received form data:", request.POST)
 
         if comment.author != request.user:
             messages.add_message(request, messages.ERROR, 'You are not authorized to edit this comment.')
