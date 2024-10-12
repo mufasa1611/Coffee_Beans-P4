@@ -183,6 +183,10 @@ STATICFILES_DIRS = (os.path.join(BASE_DIR,'static'),)
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
+# test condition .
+if 'test' in sys.argv:
+      STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
+
 # Define the absolute path to the directory where Django will collect static files
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 

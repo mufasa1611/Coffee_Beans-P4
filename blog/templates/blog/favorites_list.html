@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+    <h1>Your Favorite Posts</h1>
+
+    {% if favorites %}
+        <ul class="list-group">
+            {% for favorite in favorites %}
+                <li class="list-group-item">
+                    <a href="{% url 'post_detail' favorite.post.slug %}">{{ favorite.post.title }}</a>
+                    <span class="text-muted">by {{ favorite.post.author }}</span>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>You have not favorited any posts yet.</p>
+    {% endif %}
+</div>
+{% endblock %}
