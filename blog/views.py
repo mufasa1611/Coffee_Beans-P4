@@ -1,20 +1,24 @@
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, get_object_or_404, redirect, reverse
 from django.http import HttpResponseRedirect
 from django.views import generic
-from .models import Post, Comment, ContactMessage, Favorite  
+from blog.models import Post,Favorite, Comment, ContactMessage  
 from .forms import CommentForm, ContactForm
 from django.contrib import messages
-from django.contrib.auth.decorators import login_required
+
 
 # Create your views here.
 class PostList(generic.ListView):
     queryset = Post.objects.filter(status=1)
     template_name = "blog/home.html"
     paginate_by = 6
-
+ 
 def post_detail(request, slug):
     queryset = Post.objects.filter(status=1)
     post = get_object_or_404(queryset, slug=slug)
+    if request.user.is_authenticated:
+        # Check if the post is in the user's favorites
+        is_favorited = Favorite.objects.filter(user=request.user, post=post).exists()
     comments = post.comments.all().order_by("-created_on")
     comment_count = post.comments.filter(approved=True).count()
     comment_form = CommentForm()
@@ -38,12 +42,9 @@ def post_detail(request, slug):
                 'There was an error with your submission. Please try again.'
             )
 
-    #  statement to debug
-    #print("Post Detail View - Slug:", slug)
-    #print("Number of comments:", comment_count)
-
     return render(request, "blog/post_detail.html", {
         "post": post, 
+        'is_favorited': is_favorited,
         "comments": comments,
         "comment_count": comment_count,
         "comment_form": comment_form,
@@ -52,52 +53,34 @@ def post_detail(request, slug):
 # edit comments
 def comment_edit(request, slug, comment_id):
     if request.method == "POST":
-        # Retrieve post and comment instances
         post = get_object_or_404(Post, slug=slug)
         comment = get_object_or_404(Comment, pk=comment_id)
 
         # Print received form data for debugging
         print("Received form data:", request.POST)
 
-        # Check if the current user is the author of the comment
         if comment.author != request.user:
-           # Handle unauthorized access 
             messages.add_message(request, messages.ERROR, 'You are not authorized to edit this comment.')
             return redirect('post_detail', slug=slug)
 
-        # Process the form data
         comment_form = CommentForm(data=request.POST, instance=comment)
         if comment_form.is_valid():
             comment = comment_form.save(commit=False)
             comment.post = post
-            comment.approved = 0  # Set to 'pending'
+            comment.approved = 0  
             comment.save()
             messages.add_message(request, messages.SUCCESS, 'Comment updated successfully.')
             return HttpResponseRedirect(reverse('post_detail', args=[slug]))
         else:
-            # Print form errors for debugging
-            print("Form errors:", comment_form.errors)
-
-            # Handle invalid form submission 
             messages.add_message(request, messages.ERROR, 'Error updating comment. Please check the form data.')
     else:
-        # Handle non-POST requests 
         messages.add_message(request, messages.ERROR, 'Invalid request method.')
-    
-    # print statement to debug
-    print("Comment Edit View - Slug:", slug)
-    print("Comment ID:", comment_id)
-
-    # Redirect back to post detail page
     return HttpResponseRedirect(reverse('post_detail', args=[slug]))
 
- 
-    # delete comment
 def comment_delete(request, slug, comment_id):
     post = get_object_or_404(Post, slug=slug)
     comment = get_object_or_404(Comment, pk=comment_id)
     
-    # Check the user is the author to the comment
     if comment.author == request.user:
         comment.delete()
         messages.add_message(request, messages.SUCCESS, 'Comment deleted!')
@@ -105,11 +88,8 @@ def comment_delete(request, slug, comment_id):
         messages.add_message(request, messages.ERROR, 'You can only delete your own comments!')
     return HttpResponseRedirect(reverse('post_detail', args=[slug]))
 
-# about us section 
 def about(request):
     return render(request, 'blog/about.html')
-
-# contact us section 
 
 def contact(request):
     if request.method == "POST":
@@ -120,21 +100,21 @@ def contact(request):
                 email=form.cleaned_data['email'],
                 message=form.cleaned_data['message']
             )
-            # (the upcoming code snaped with modifications from 
-            # https://stackoverflow.com/questions/42893623/django-success-message-in-view-using-django-contrib-messages)
-            # Add a success message
             messages.success(request, 'Thank you for your message!')
-            # Redirect to the same page to reset the form
-            return redirect('contact')  # Confirm  'contact' matches URL pattern name
+            return redirect('contact')  
     else:
         form = ContactForm()
-        
     return render(request, 'blog/contact.html', {'form': form})
-
+               
 @login_required
 def favorite(request, post_id):
     post = get_object_or_404(Post, id=post_id)
     favorite, created = Favorite.objects.get_or_create(user=request.user, post=post)
     if not created:
-        favorite.delete() 
-    return redirect('post_detail', post_id=post.id)
+        favorite.delete()  
+    return redirect('post_detail', slug=post.slug)
+
+@login_required
+def favorites_list(request):
+    user_favorites = request.user.favorites.all() 
+    return render(request, 'blog/favorites_list.html', {'favorites': user_favorites})
