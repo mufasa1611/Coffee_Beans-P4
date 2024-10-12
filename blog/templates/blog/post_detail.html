@@ -17,22 +17,26 @@
     <div class="container">
         <div class="row g-0">
             <div class="col-md-6 masthead-text">
-                <!-- Post title -->
-                <h1 class="post-title">{{ post.title }}</h1>
-                <!-- Favorite button -->
-                {% if user.is_authenticated %}
-                    <a href="{% url 'favorite' post.id %}" class="favorite-button ms-3">
-                        {% if post in user.favorite_set.all %}
-                            <i class="fas fa-heart" style="color: red; font-size: 1.5em;" title="Remove from Favorites"></i>
+                <!-- Post title and favorite button -->
+                <div class="d-flex align-items-center">
+                    <h1 class="post-title">{{ post.title }}</h1>
+                    
+                    {% if user.is_authenticated %}
+                    <a href="{% url 'favorite' post.id %}" class="favorite-button ms-3" data-post-id="{{ post.id }}">
+                        {% if is_favorited %}
+                            <i class="fas fa-heart favorite-icon" style="color: red; font-size: 2em;" title="Remove from Favorites"></i>
                         {% else %}
-                            <i class="far fa-heart" style="color: gray; font-size: 1.5em;" title="Add to Favorites"></i>
+                            <i class="far fa-heart favorite-icon" style="color: gray; font-size: 2em;" title="Add to Favorites"></i>
                         {% endif %}
                     </a>
-                {% else %}
-                    <a href="{% url 'login' %}" class="favorite-button ms-3">
-                        <i class="far fa-heart" style="color: gray; font-size: 1.5em;" title="Log in to favorite this post"></i>
-                    </a>
-                {% endif %}
+                    
+                    {% else %}
+                        
+                        <a href="/account/login/" class="favorite-button ms-3">
+                            <i class="far fa-heart" style="color: #b88203; font-size: 2em;" title="Log in to favorite this post"></i>
+                        </a>
+                    {% endif %}
+                </div>
                 <!-- Post author and date -->
                 <p class="post-subtitle">{{ post.author }} | {{ post.created_on }}</p>
             </div>
