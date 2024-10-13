@@ -30,7 +30,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-
+APPEND_SLASH = True
 ALLOWED_HOSTS = ['.herokuapp.com',
                  '127.0.0.1',
                  'localhost']
@@ -121,7 +121,7 @@ AUTHENTICATION_BACKENDS = [
 ]
 
 # Disable email confirmation
-ACCOUNT_EMAIL_VERIFICATION = None
+ACCOUNT_EMAIL_VERIFICATION = "mandatory" 
 
 WSGI_APPLICATION = 'beans.wsgi.application'
 

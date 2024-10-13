@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", function() {
         // debug  console.log("Comment Content:", commentContent); 
           commentText.value = commentContent;
           submitButton.innerText = "Update";
-          commentForm.setAttribute("action", `edit_comment/${commentId}`);
+          commentForm.setAttribute("action", `edit_comment/${commentId}/`);
         });
     }
     

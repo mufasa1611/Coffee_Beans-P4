@@ -12,14 +12,21 @@
 </div>
 {% endif %}
 
+
 {% for event in event_list %}
 <a href="{% url 'event_detail' event.event_id %}">
     <h2>{{ event.event_name }}</h2>
 </a>
 {% endfor %}
+
+   <!-- Coffee Beans Title -->
+<div class="mx-auto">
+    <h1 class="navbar-title">Coffee Beans</h1>
+</div>
+
 <div class="container-fluid">
     <div class="image-wrapper">
-        <img class="mainpage-image" src="{% static 'img/pexels.main.jpg' %}" alt="placeholder">   
+        <img class="mainpage-image" src="{% static 'img/main.jpg' %}" alt="placeholder">   
     </div>
 </div>
 
@@ -47,7 +54,7 @@
                                     <p class="author">Author : {{ post.author }}</p>
                                 </div>
                             </div>
-                            <hr/>
+                            <hr>
 
                             <!-- uses the name, post_detail from the urlpattern -->
                             <a href="{% url 'post_detail' post.slug %}" class="post-link">
@@ -56,7 +63,7 @@
                                 <p class="card-text">{{ post.excerpt }}</p>
                             </a>
 
-                            <hr/>
+                            <hr>
                             <p class="card-text text-muted h6">{{ post.created_on}}
                             </p>
                         </div>
