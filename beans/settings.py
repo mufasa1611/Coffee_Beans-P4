@@ -121,7 +121,7 @@ AUTHENTICATION_BACKENDS = [
 ]
 
 # Disable email confirmation
-ACCOUNT_EMAIL_VERIFICATION = "mandatory" 
+ACCOUNT_EMAIL_VERIFICATION = "none" 
 
 WSGI_APPLICATION = 'beans.wsgi.application'
 
