@@ -22,12 +22,12 @@
 
 - HTML ([W3C Validator](https://validator.w3.org/))
     - **base.html and index.html:**<br>
-    ![homepage.html](doc\test-img\errors.html.png)<br>
+    ![homepage.html](doc/test-img/errors.html.png)<br>
     
     - Solution: after fixing the errors, all my html.pages showed: No errors
-    ![homepage.html](doc\test-img\html.png)<br>
+    ![homepage.html](doc/test-img/html.png)<br>
     
-    - CSS ([Jigsaw](https://jigsaw.w3.org/css-validator/))![css error](doc\test-img\CSS_Validator.png)
+    - CSS ([Jigsaw](https://jigsaw.w3.org/css-validator/))![css error](doc/test-img/CSS_Validator.png)
     No Error 
 
     - JS ([JS Hint](https://jshint.com/))
@@ -47,10 +47,10 @@
 
    - Performance, Accessibility, Best Practices, SEO (Lighthouse Chrome Dev Tools)
     - Lighthouse for desktop:<br>
-    ![Lighthouse rating - desktop](doc\test-img\lighthouse.desktop.png)<br>
+    ![Lighthouse rating - desktop](doc/test-img/lighthouse.desktop.png)<br>
     
     - Lighthouse for mobile:<br>
-    ![Lighthouse rating - mobile](doc\test-img\lighthouse.mobile.png)<br>
+    ![Lighthouse rating - mobile](doc/test-img/lighthouse.mobile.png)<br>
 
 ### Browser Testing 
 
