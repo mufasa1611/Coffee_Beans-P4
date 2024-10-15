@@ -101,7 +101,7 @@ The below section describes the site's features in detail.
 - In the mobile view, the logo is on the left side up and a drop-down menu shows on the right side. When clicked, it opens under the header, pushing down the content. It contains the links to
       "Home", "Register", "Login" and "More" with its own drop-down menu showing "About Us", "Contact Us" and "My favorites". The blog posts are
       stacked under each other in a column, the images and text resize automatically.  
-      ![header - mobile view](docread/img/header.mobile.view.png)
+      ![header - mobile view](doc/read-img/header.mobile.view.png)
 
 - **Main section - Home page**
     - The main part of the landing page contains the title, a landing image, and a display of the six most recent blog posts beneath.
