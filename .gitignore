@@ -14,5 +14,4 @@ venv.bak
 db_backup.json
 backup.json
 fixtures
-test
 db.sqlite3

@@ -59,9 +59,9 @@
         <div class="col card mb-4 mt-3">
             <div class="card-body">
                 <!-- Post content -->
-                <p class="card-text">
+                <div class="card-text">
                     {{ post.content | safe }}
-                </p>
+                </div>
                 
                 <!-- Comment Count -->
                 <div class="row">
@@ -92,8 +92,8 @@
 
                                 <!-- Edit and Delete Buttons -->
                                 {% if user.is_authenticated and comment.author == user %}
-                                <button class="btn btn-primary btn-custom-edit" comment_id="{{ comment.id }}">Edit</button>
-                                <button class="btn btn-danger btn-delete" comment_id="{{ comment.id }}">Delete</button>
+                                <button class="btn btn-primary btn-custom-edit" data-comment-id="{{ comment.id }}">Edit</button>
+                                <button class="btn btn-danger btn-delete" data-comment-id="{{ comment.id }}">Delete</button>
                                 {% endif %}
                             </div>
                             {% endfor %}

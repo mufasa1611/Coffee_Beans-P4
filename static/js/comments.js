@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", function() {
     
     for (let button of editButtons) {
         button.addEventListener("click", (e) => {
-          let commentId = e.currentTarget.getAttribute("comment_id"); 
+          let commentId = e.currentTarget.getAttribute("data-comment-id"); 
         //debug console.log("Comment ID:", commentId);
           let commentContent = document.getElementById(`comment${commentId}`).innerText;
         // debug  console.log("Comment Content:", commentContent); 
@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", function() {
     
     for (let button of deleteButtons) {
         button.addEventListener("click", (e) => {
-          let commentId = e.target.getAttribute("comment_id");
+          let commentId = e.target.getAttribute("data-comment-id");
           deleteConfirm.href = `delete_comment/${commentId}`;
           deleteModal.show();
     });

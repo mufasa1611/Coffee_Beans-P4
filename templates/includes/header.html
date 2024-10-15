@@ -1,5 +1,4 @@
 {% load static %}
-
 <header>
   {% with request.resolver_match.url_name as url_name %}
   <nav class="navbar navbar-expand-lg bg-light">
@@ -41,7 +40,6 @@
       <a class="dropdown-item {% if url_name == 'about' %}active{% endif %}" href="{% url 'about' %}">About Us</a>
     </li>
     <li><a class="dropdown-item {% if url_name == 'contact' %}active{% endif %}" href="{% url 'contact' %}">Contact us</a></li>
-    
     <li><a class="dropdown-item {% if url_name == 'favortes' %}active{% endif %}" href="{% url 'favorites_list' %}">My favorites</a></li>
   </ul>
 </ul>
@@ -50,12 +48,13 @@
   <input class="form-control me-2" type="search" id="search-box" placeholder="Search" aria-label="Search">
   <button class="btn btn-outline-success" type="submit" id="search-button" onclick="MaintenanceMessage();">Search</button>
 </form>
-
-<script>
-function MaintenanceMessage() {
-  alert("Search is currently under maintenance. thanks for your understanding.");
-}
-</script>
-  
-  {% endwith %}
+</div>
+</div>
+  </nav>
+    {% endwith %}
 </header>
+<script>
+  function MaintenanceMessage() {
+    alert("Search is currently under maintenance. thanks for your understanding.");
+  }
+  </script>
