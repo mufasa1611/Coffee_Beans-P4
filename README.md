@@ -8,7 +8,7 @@ Whether you're an enthusiast or just starting your coffee journey, this blog has
 
 Visit the live site here: [Coffee Beans Blog](https://https://coffee-beans-7b5635944a87.herokuapp.com//)
 
-[Github Repository](https://https://github.com/mufasa1611/Coffee_Beans-P4/)
+[Github Repository](https://github.com/mufasa1611/Coffee_Beans-P4/)
 
 ## Table of Contents
 
