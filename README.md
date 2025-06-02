@@ -6,7 +6,7 @@ This blog is dedicated to exploring the world of coffee beans!
 From the rich flavors of Arabica to the bold notes of Robusta, we’ll cover everything about coffee bean varieties. 
 Whether you're an enthusiast or just starting your coffee journey, this blog has something for everyone.
 
-Visit the live site here: [Coffee Beans Blog](https://coffee-beans-7b5635944a87.herokuapp.com//)
+Visit the live site here: [Coffee Beans Blog](https://coffee-beans-7b5635944a87.herokuapp.com/)
 
 [Github Repository](https://github.com/mufasa1611/Coffee_Beans-P4/)
 
